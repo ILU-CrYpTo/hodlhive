@@ -15,9 +15,12 @@ export default function ConnectPage() {
   const router = useRouter();
 
   useEffect(() => {
-    // Если кошелек уже подключен, перенаправляем на /dashboard
     if (connected) {
-      router.push('/dashboard');
+      // Ждем 1 секунду для стабилизации состояния
+      const timeout = setTimeout(() => {
+        router.push('/dashboard');
+      }, 1000);
+      return () => clearTimeout(timeout);
     }
   }, [connected, router]);
 

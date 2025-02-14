@@ -8,15 +8,17 @@ const NetWorthCard = dynamic(
 );
 
 export default function Dashboard() {
-  const { connected } = useWallet();
+  const { connected, connecting } = useWallet();
   const router = useRouter();
 
   useEffect(() => {
-    // Если кошелек не подключен, перенаправляем на /connect
-    if (!connected && typeof window !== 'undefined') {
+    if (!connecting && !connected) {
       router.push('/connect');
     }
-  }, [connected, router]);
+  }, [connected, connecting, router]);
+
+  if (connecting) return <div>Connecting wallet...</div>;
+  if (!connected) return <div>Redirecting...</div>;
 
   // Если кошелек подключен, показываем дашборд
   if (connected) {

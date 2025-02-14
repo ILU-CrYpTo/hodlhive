@@ -6,15 +6,15 @@ import { useEffect } from 'react';
 
 // Изменено на default export
 export default function WalletConnector() {
-  const { connected } = useWallet();
+  const { connected, connecting } = useWallet();
   const { setVisible } = useWalletModal();
   const router = useRouter();
 
   useEffect(() => {
-    if (connected) {
+    if (connected && !connecting) {
       router.push('/dashboard');
     }
-  }, [connected, router]);
+  }, [connected, connecting, router]);
 
   return (
     <div className="flex flex-col items-center justify-center flex-grow">
