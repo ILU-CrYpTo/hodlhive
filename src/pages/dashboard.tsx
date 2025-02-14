@@ -8,7 +8,7 @@ const NetWorthCard = dynamic(
 );
 
 export default function Dashboard() {
-  const { connected, publicKey } = useWallet();
+  const { connected } = useWallet();
   const router = useRouter();
 
   useEffect(() => {
