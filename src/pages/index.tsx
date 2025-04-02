@@ -14,7 +14,7 @@ export default function HomePage() {
       {/* Добавляем секцию с метаданными */}
       <Head>
         <title>HodlHive</title> {/* Заголовок вкладки */}
-        <link rel="icon" href="/favicon.ico" /> {/* Путь к иконке */}
+        <link rel="icon" href="/favicon.png" /> {/* Путь к иконке */}
       </Head>
 
       <div 
